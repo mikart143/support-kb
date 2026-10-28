@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · three problems, not one'
 owner: Michał Kruczek
-status: open
+status: closed
 reviewed: 2026-10-28
 signature: Michał Kruczek (mikart143)
 ---
@@ -23,7 +23,7 @@ signature: Michał Kruczek (mikart143)
 and by body, describe three problems. The fix queued for the parser closes only the first.
 
 <Callout kind="warn">
-Not one issue. Each problem below has its own ticket. Do not close them with #4471.
+Not one issue. Each problem below had its own ticket; all three are now closed.
 </Callout>
 
 ## What #4471 holds
