@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: Michał Kruczek
 status: closed
 reviewed: 2026-10-28
-signature: Michał Kruczek (mikart143)
+signature: v1.eyJzdWIiOiIxNDI5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTc1NTMsImV4cCI6MTc5MzMwMzk1M30.INQJQNlYAzeejssW8gS3HjXLUTu8VRsxYn4fv71_UcI
 ---
 
 <script>
