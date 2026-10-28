@@ -1,0 +1,63 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: Michał Kruczek
+status: open
+reviewed: 2026-10-28
+signature: Michał Kruczek (mikart143)
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+
+  const issues = {
+    parser: 'ISSUE_PARSER',
+    hint: 'ISSUE_HINT',
+    shift: 'ISSUE_SHIFT',
+  };
+</script>
+
+[#4471](/kb/incidents/4471) is marked known: one bug, one fix queued. Its reports, read by tenant
+and by body, describe three problems. The fix queued for the parser closes only the first.
+
+<Callout kind="warn">
+Not one issue. Each problem below has its own ticket. Do not close them with #4471.
+</Callout>
+
+## What #4471 holds
+
+<ProblemTable ticket={4471} {issues} />
+
+## How each report was placed
+
+1. **One report, one row.** The export pages overlap, so some reports appear twice. They are
+   counted once, by id.
+2. **One-day moves first.** The desk already read some reports as a one-day move
+   (`desk-notes.json`). Their bodies give a date one day off, an invite sent before the booking, or
+   one meeting on two days in two time zones. That is not a day/month swap, and the parser fix
+   will not touch it.
+3. **The rest by tenant, not by browser.** `causes.ts` places a report by its tenant's locale and
+   booking form. A report sent through the form of a `booking-v3` tenant is `hint`: the form tells
+   people to type month first, then reads the date day first. Everything else from a day-first
+   tenant is `parser`.
+
+The intake tag is a guess from the reporter's browser. The column "intake tag wrong" shows how
+often that guess put a report under the wrong problem.
+
+## Why they were merged
+
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject alone, and nobody reads
+the body. All three problems produce the same subjects ("Wrong day on the invite", "Date is
+wrong"), so all three landed in #4471. The incident page shows `hint` as a second cause with no
+ticket of its own, and footnotes the one-day moves under `parser`.
+
+## What to do
+
+- Keep #4471 for the parser. Do not mark the others fixed when its fix ships.
+- `hint`: change the `booking-v3` date hint to match how the form reads the date.
+- `shift`: find where invite dates cross a time zone; it is not the parser.
+- Merge on cause, not subject: [DedupeExplorer](/kb/triage/dedupe) already shows that.
+
+<RenderStamp {signature} />
