@@ -13,9 +13,9 @@ signature: Michał Kruczek (mikart143)
   import Callout from '#lib/kb/Callout.svelte';
 
   const issues = {
-    parser: 'ISSUE_PARSER',
-    hint: 'ISSUE_HINT',
-    shift: 'ISSUE_SHIFT',
+    parser: 'https://github.com/mikart143/support-kb/issues/1',
+    hint: 'https://github.com/mikart143/support-kb/issues/2',
+    shift: 'https://github.com/mikart143/support-kb/issues/3',
   };
 </script>
 
